@@ -1,0 +1,81 @@
+@import '~src/styles/colors';
+
+#chat-container {
+  width: 350px;
+  height: 500px;
+  border: 2px solid $main-grey-color;
+  display: flex;
+  flex-direction: column  ;
+
+  footer {
+    background-color: $main-grey-color;
+    display: flex;
+    flex-direction: row;
+
+    input{
+      margin: 5px;
+      flex-grow: 1;
+    }
+
+    #btn-send {
+      color: white;
+      font-size: 20px;
+      margin-right: 5px;
+    }
+  }
+
+  header {
+    background-color: $main-grey-color;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    #btn-close {
+      color: white
+    }
+
+    #title {
+      margin: 0;
+      padding: 5px;
+    }
+  }
+
+  #message-container {
+    flex-grow: 1;
+    overflow-y: auto;
+
+    .bot-message-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-left: 10px;
+      margin-top: 10px;
+
+      .bot-message {
+        background-color: $main-grey-color;
+        color: white;
+        border-radius: 5px;
+        max-width: 70%;
+        padding: 5px;
+      }
+    }
+
+    .user-message-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 5px;
+      margin-right: 10px;
+      margin-top: 10px;
+
+      .user-message {
+        border: 2px solid $main-grey-color;
+        color: $main-grey-color;
+        border-radius: 5px;
+        max-width: 70%;
+        padding: 5px;
+      }
+    }
+  }
+}

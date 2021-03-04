@@ -1,0 +1,21 @@
+<div id="chat-container">
+  <header>
+    <h4 id="title">PMR Chat Bot</h4>
+    <button id="btn-close" class="btn" (click)="onCloseClick()"><i class="fa fa-close"></i></button>
+  </header>
+
+  <section id="message-container">
+    <div class="bot-message-group" *ngFor="let message of botMessages">
+      <div class="bot-message">{{ message }}</div>
+    </div>
+    <div class="user-message-group" *ngFor="let message of userMessages">
+      <div class="user-message">{{ message }}</div>
+    </div>
+  </section>
+
+  <footer>
+
+    <input class="form-control" type="text" placeholder="type here">
+    <button id="btn-send" class="btn" (click)="onCloseClick()"><i class="fa fa-send"></i></button>
+  </footer>
+</div>

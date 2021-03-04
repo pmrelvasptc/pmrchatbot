@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'pmr-chatbot-frontend';
+
+  constructor(
+    private router: Router) { }
+
+  onChatClick(): void {
+    this.router.navigate(['chat']);
+  }
+
 }
