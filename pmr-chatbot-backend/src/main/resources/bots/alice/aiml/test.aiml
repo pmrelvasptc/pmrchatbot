@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0">
+    <category>
+        <pattern>HELLO</pattern>
+        <template>
+            <random>
+                <li>Hi!</li>
+                <li>Hello!</li>
+                <li>Hello, how are you?</li>
+            </random>
+        </template>
+    </category>
+   <category>
+        <pattern>HI</pattern>
+        <template>
+            <random>
+                <li>Hi!</li>
+                <li>Hello!</li>
+                <li>Hello, how are you?</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>HOW ARE YOU</pattern>
+        <template>Doing great, and you?</template>
+    </category>
+    <category>
+        <pattern>PROPERTIES</pattern>
+        <template>
+            <bot name="name"/>
+            <bot name="age"/>
+            <bot name="height"/>
+        </template>
+    </category>
+
+    <category>
+        <pattern><set>number</set></pattern>
+        <template>Great! a number!</template>
+    </category>
+</aiml>

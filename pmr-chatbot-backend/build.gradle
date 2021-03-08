@@ -10,14 +10,33 @@ sourceCompatibility = '11'
 
 repositories {
 	mavenCentral()
+	jcenter()
+	maven {
+		// for sanmoku (program-ab dependency_
+		url 'http://nexus.bippo.co.id/nexus/content/repositories/soluvas-public-thirdparty'
+	}
 }
 
 dependencies {
-	implementation project(':domain')
-	implementation project(':api')
 
 	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.projectlombok:lombok:1.18.16'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	implementation "org.springframework.boot:spring-boot-starter-web:2.4.3"
+	implementation "org.springframework.boot:spring-boot-starter-validation:2.4.3"
+
+	implementation 'org.springframework.boot:spring-boot-starter-websocket:2.4.3'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.4.3'
+
+	compileOnly 'org.projectlombok:lombok:1.18.16'
+	annotationProcessor 'org.projectlombok:lombok:1.18.16'
+	testCompileOnly 'org.projectlombok:lombok:1.18.16'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+	// Project AB - AIML
+	// https://mvnrepository.com/artifact/org.goldrenard/ab
+	implementation group: 'org.goldrenard', name: 'ab', version: '1.0.7'
 }
 
 test {

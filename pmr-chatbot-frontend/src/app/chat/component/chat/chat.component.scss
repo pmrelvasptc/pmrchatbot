@@ -41,41 +41,35 @@
     }
   }
 
-  #message-container {
+  #messages-container {
     flex-grow: 1;
     overflow-y: auto;
 
-    .bot-message-group {
+    .message {
       display: flex;
       flex-direction: column;
       gap: 5px;
-      margin-left: 10px;
-      margin-top: 10px;
+      margin: 10px 10px 0 10px;
 
-      .bot-message {
+      .user-message-content {
         background-color: $main-grey-color;
         color: white;
         border-radius: 5px;
         max-width: 70%;
         padding: 5px;
       }
-    }
 
-    .user-message-group {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 5px;
-      margin-right: 10px;
-      margin-top: 10px;
-
-      .user-message {
+      .bot-message-content {
         border: 2px solid $main-grey-color;
         color: $main-grey-color;
         border-radius: 5px;
         max-width: 70%;
         padding: 5px;
       }
+    }
+
+    .user-message {
+      align-items: flex-end;
     }
   }
 }
