@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { WebsocketService } from '../../../shared/service/websocket.service';
 
 export enum Agent {
@@ -18,6 +18,8 @@ export interface Message {
 })
 export class ChatComponent implements OnInit, OnDestroy {
 
+  @ViewChild('messagesContainer', { static: false }) private messagesContainerEl: ElementRef;
+
   messages: Message[] = [];
   userMessageInput: string;
 
@@ -35,6 +37,8 @@ export class ChatComponent implements OnInit, OnDestroy {
             agent: Agent.BOT,
             content: responseJson.content
           });
+
+          this.messagesContainerEl.nativeElement.scrollTop = this.messagesContainerEl.nativeElement.scrollHeight + 50;
         } catch (e) {
           console.error('error parsing');
         }
