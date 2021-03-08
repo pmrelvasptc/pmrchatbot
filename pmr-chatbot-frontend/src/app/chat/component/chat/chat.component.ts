@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { WebsocketService } from '../../../shared/service/websocket.service';
 
 export enum Agent {
@@ -16,7 +16,7 @@ export interface Message {
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
-export class ChatComponent implements OnInit, OnDestroy {
+export class ChatComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   @ViewChild('messagesContainer', { static: false }) private messagesContainerEl: ElementRef;
 
@@ -38,11 +38,14 @@ export class ChatComponent implements OnInit, OnDestroy {
             content: responseJson.content
           });
 
-          this.messagesContainerEl.nativeElement.scrollTop = this.messagesContainerEl.nativeElement.scrollHeight + 50;
         } catch (e) {
           console.error('error parsing');
         }
       });
+  }
+
+  ngAfterViewChecked(): void {
+    this.messagesContainerEl.nativeElement.scrollTop = this.messagesContainerEl.nativeElement.scrollHeight;
   }
 
   ngOnDestroy() {
